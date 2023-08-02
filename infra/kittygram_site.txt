@@ -1,0 +1,5 @@
+IP: 158.160.71.233;
+name_taski: https://comaash.sytes.net;
+name_kittygram: https://ash-kittygram.sytes.net;
+login: yc-user;
+password: yc-user;
