@@ -187,6 +187,80 @@ Kittygram — социальная сеть для обмена фотограф
    
 
 ## Примеры запросов API:
+`Операции с котиками`
+### Get api/cats/
+Вернет список из 10 котиков на странице
+```
+{
+    "count": 55,
+    "next": "http://api.example.org/cats/?offset=50&limit=10",
+    "previous": "http://api.example.org/cats/?offset=30&limit=10",
+    "results": [{}]
+}
+```
+### Post api/cats/
+Опубликует профиль котика. Необязательные поля: achievements, image.
+```
+{
+    "name": "string: max_length=16",
+    "color": "string: webcolors.hex_to_name",
+    "birth_year": "integer",
+    "owner": 0,
+    "achievements": 0,
+    "image": "string(base64)"
+}
+```
+`Операции с кошачьими достижениями`
+### Get api/achievements/
+Предоставит список всех достижений заданных пользователями.
+
+### Post api/achievements/
+```
+{
+    "id": 0,
+    "name": "string: max_length=64"
+}
+```
+`Операции с пользователями`
+### Post api/users/
+Регистрация пользователя на сайте
+```
+{
+    "username": "User.USERNAME_FIELD",
+    "password": "string",
+    "re-password": "string"
+}
+```
+Ответ:
+```
+{
+    "username": "User.USERNAME_FIELD",
+    "pk": "User._meta.pk.name "
+}
+```
+### Post api/token/login/
+Залогинить пользователя на сайте
+```
+{
+    "username": "User.USERNAME_FIELD",
+    "password": "string"
+}
+```
+Ответ:
+```
+{
+    "auth_token": "string"
+}
+```
+### Post api/token/logout/
+Разлогинить пользователя на сайте
+```
+{
+    "username": "User.USERNAME_FIELD",
+    "password": "string"
+}
+```
+Ответ - статус HTTP_204_NO_CONTENT
 
 
 ## Технологии:
